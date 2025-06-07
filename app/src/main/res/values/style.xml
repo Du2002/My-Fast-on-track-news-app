@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Base application theme.  -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--  Customize your theme here.  -->
+        <item name="colorPrimary">@color/design_default_color_primary_dark</item>
+        <item name="colorPrimaryDark">@color/material_dynamic_neutral60</item>
+        <item name="colorAccent">@color/cardview_light_background</item>
+    </style>
+</resources>
