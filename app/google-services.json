@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "221985233876",
+    "firebase_url": "https://fir-fasttrackmobile-app-default-rtdb.firebaseio.com",
+    "project_id": "fir-fasttrackmobile-app",
+    "storage_bucket": "fir-fasttrackmobile-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221985233876:android:d2c759ecc4e28873b4d441",
+        "android_client_info": {
+          "package_name": "com.example.my_fast_on_track_news_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVHANfXsk6WUwMcXxIzavKMxdDOzXQ5mU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
