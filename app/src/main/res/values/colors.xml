@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="design_default_color_primary_dark">#153446</color> <!-- Your app’s dark blue, example value -->
+    <color name="material_dynamic_neutral60">#374151</color> <!-- Example value, replace with your preferred -->
+    <color name="cardview_light_background">#EAC1BF</color> <!-- Example value, replace as needed -->
+    <color name="button_red">#E53935</color> <!-- Material Red 600 -->
 </resources>

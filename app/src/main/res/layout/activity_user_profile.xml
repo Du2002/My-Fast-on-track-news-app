@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/splashbackground"
+    android:paddingTop="40dp"
+    android:paddingBottom="40dp"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp">
+
+    <!-- Centered Profile Image -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImage"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="36dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/default_profile"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <!-- All info left-aligned but centered as a block -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="start"
+        android:layout_marginBottom="32dp"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tvUserInfoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="USER INFORMATION"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:textColor="#222"
+            android:layout_marginBottom="22dp"/>
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Username : Rashmi"
+            android:textSize="20sp"
+            android:textColor="#222"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email : Rashmi@email.com"
+            android:textSize="20sp"
+            android:textColor="#222"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+    <!-- Edit button -->
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="24dp"
+        android:text="Edit Info."
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/button_gray"
+        android:textColor="#111"/>
+
+    <!-- Sign out button -->
+    <Button
+        android:id="@+id/btnSignOut"
+        android:backgroundTint="@null"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="192dp"
+        android:text="Sign-Out"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/button_red"
+        android:textColor="#fff"/>
+</LinearLayout>
