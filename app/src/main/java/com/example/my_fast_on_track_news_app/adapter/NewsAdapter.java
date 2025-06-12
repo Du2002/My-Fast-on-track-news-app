@@ -1,11 +1,14 @@
 package com.example.my_fast_on_track_news_app.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +43,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         holder.description.setText(item.description);
         holder.date.setText(item.date);
         Glide.with(context).load(item.imageUrl).into(holder.image);
+
+        // Handle item click for details
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, com.example.my_fast_on_track_news_app.NewsDetailActivity.class);
+            intent.putExtra("title", item.title);
+            intent.putExtra("desc", item.description);
+            intent.putExtra("imageUrl", item.imageUrl);
+            intent.putExtra("date", item.date);
+            context.startActivity(intent);
+        });
     }
 
     @Override
