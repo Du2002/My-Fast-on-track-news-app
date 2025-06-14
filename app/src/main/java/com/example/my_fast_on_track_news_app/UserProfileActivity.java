@@ -1,5 +1,5 @@
 package com.example.my_fast_on_track_news_app;
-
+import android.widget.EditText;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -137,21 +137,69 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private void showEditDialog() {
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_edit_profile, null);
-        TextView etUsername = dialogView.findViewById(R.id.etUsername);
-        TextView etEmail = dialogView.findViewById(R.id.etEmail);
+        EditText etUsername = dialogView.findViewById(R.id.etUsername);
+        EditText etEmail = dialogView.findViewById(R.id.etEmail);
+
+        // Pre-fill current values
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                String currentUsername = snapshot.child("username").getValue(String.class);
+                String currentEmail = snapshot.child("email").getValue(String.class);
+                etUsername.setText(currentUsername);
+                etEmail.setText(currentEmail);
+            }
+            @Override
+            public void onCancelled(DatabaseError error) { }
+        });
 
         new AlertDialog.Builder(this)
                 .setTitle("Edit your profile")
                 .setView(dialogView)
                 .setPositiveButton("Ok", (dialog, which) -> {
-                    String newUsername = etUsername.getText().toString();
-                    String newEmail = etEmail.getText().toString();
-                    userRef.child("username").setValue(newUsername);
-                    userRef.child("email").setValue(newEmail);
-                    tvUsername.setText("Username : " + newUsername);
-                    tvEmail.setText("Email : " + newEmail);
+                    String newUsername = etUsername.getText().toString().trim();
+                    String newEmail = etEmail.getText().toString().trim();
+
+                    userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot snapshot) {
+                            String oldUsername = snapshot.child("username").getValue(String.class);
+                            String oldEmail = snapshot.child("email").getValue(String.class);
+                            String uid = mAuth.getCurrentUser().getUid();
+                            DatabaseReference usernamesRef = FirebaseDatabase.getInstance().getReference("usernames");
+
+                            // 1. Remove old username entry
+                            if (oldUsername != null && !oldUsername.equals(newUsername)) {
+                                usernamesRef.child(oldUsername).removeValue();
+                            }
+                            // 2. Update /users/<uid>
+                            userRef.child("username").setValue(newUsername);
+                            userRef.child("email").setValue(newEmail);
+
+                            // 3. Add new username entry
+                            usernamesRef.child(newUsername).setValue(uid);
+
+                            // (Optional) Update email in FirebaseAuth
+                            // Only do this if you want to allow login with new email
+                        /*
+                        mAuth.getCurrentUser().updateEmail(newEmail)
+                            .addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(UserProfileActivity.this, "Email updated", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        */
+
+                            tvUsername.setText("Username : " + newUsername);
+                            tvEmail.setText("Email : " + newEmail);
+                            Toast.makeText(UserProfileActivity.this, "Profile updated!", Toast.LENGTH_SHORT).show();
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError error) { }
+                    });
                 })
                 .setNegativeButton("Cancel", null)
                 .show();
     }
+
 }
