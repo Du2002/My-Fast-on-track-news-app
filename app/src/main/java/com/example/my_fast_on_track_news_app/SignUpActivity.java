@@ -17,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -50,6 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         btnSignUp.setOnClickListener(v -> {
             String username = etUsername.getText().toString().trim();
+            String usernameLower = username.toLowerCase(); // Force lowercase for db mapping!
             String password = etPassword.getText().toString().trim();
             String confirmPassword = etConfirmPassword.getText().toString().trim();
             String email = etEmail.getText().toString().trim();
@@ -89,6 +92,11 @@ public class SignUpActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                // Store username-to-email mapping in lowercase!
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference usernamesRef = database.getReference("usernames");
+                                usernamesRef.child(usernameLower).setValue(email);
+
                                 Toast.makeText(SignUpActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                                 // Go back to login
                                 startActivity(new Intent(SignUpActivity.this, LoginActivity.class));

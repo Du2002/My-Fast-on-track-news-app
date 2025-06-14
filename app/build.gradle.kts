@@ -43,6 +43,15 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation(libs.circleimageview)
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+    implementation ("com.google.firebase:firebase-storage:20.3.0")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+
+
+
 
 
 
