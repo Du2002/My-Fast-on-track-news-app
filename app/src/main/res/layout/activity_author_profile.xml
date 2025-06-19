@@ -118,7 +118,7 @@
 
 
     <!-- Home Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnHome"
         android:layout_width="360dp"
         android:layout_height="60dp"

@@ -63,7 +63,7 @@
     </LinearLayout>
 
     <!-- Edit button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEdit"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -72,12 +72,12 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:background="@drawable/button_gray"
+        android:backgroundTint="@null"
         android:textColor="#111"/>
 
     <!-- Sign out button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignOut"
-        android:backgroundTint="@null"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginBottom="24dp"
@@ -86,5 +86,6 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:background="@drawable/button_red"
+        android:backgroundTint="@null"
         android:textColor="#fff"/>
 </LinearLayout>

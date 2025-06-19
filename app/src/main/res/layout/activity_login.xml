@@ -94,7 +94,6 @@
         android:layout_marginTop="18dp"
         android:textColor="#222" />
 
-
     <!-- Login Button -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin"
