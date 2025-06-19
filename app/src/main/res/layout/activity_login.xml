@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/splashbackground"
+        android:src="@drawable/splashbackgroundwithoutlogo"
         android:contentDescription="@null" />
 
     <!-- App Logo -->
@@ -96,7 +96,7 @@
 
 
     <!-- Login Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin"
         android:layout_width="320dp"
         android:layout_height="64dp"
