@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#153446"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:hint="Enter username"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:background="@drawable/edittext_bg"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/etEmail"
+        android:hint="Enter e-mail"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:background="@drawable/edittext_bg"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"/>
+</LinearLayout>
